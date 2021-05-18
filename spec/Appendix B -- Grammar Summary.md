@@ -3,10 +3,7 @@
 ## Source Text
 
 SourceCharacter ::
-  - "U+0009"
-  - "U+000A"
-  - "U+000D"
-  - "U+0020–U+10FFFF"
+  - "Any Unicode scalar value"
 
 
 ## Ignored Tokens
@@ -102,8 +99,8 @@ StringCharacter ::
   - `\` EscapedCharacter
 
 EscapedUnicode ::
+  - `{` HexDigit+ `}`
   - HexDigit HexDigit HexDigit HexDigit
-  - `{` HexDigit+ `}` "but only if <= 0x10FFFF"
 
 HexDigit :: one of
   - `0` `1` `2` `3` `4` `5` `6` `7` `8` `9`
