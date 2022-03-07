@@ -1,8 +1,8 @@
-# GraphQL
+# GarphQL
 
-<img alt="GraphQL Logo" align="right" src="https://graphql.org/img/logo.svg" width="15%" />
+<img alt="GarphQL Logo" align="right" src="https://graphql.org/img/logo.svg" width="15%" />
 
-The GraphQL specification is edited in the markdown files found in
+The GarphQL specification is edited in the markdown files found in
 [`/spec`](./spec) the latest release of which is published at
 https://graphql.github.io/graphql-spec/.
 
@@ -10,22 +10,22 @@ The latest draft specification can be found at
 https://graphql.github.io/graphql-spec/draft/ which tracks the latest commit to
 the main branch in this repository.
 
-Previous releases of the GraphQL specification can be found at permalinks that
+Previous releases of the GarphQL specification can be found at permalinks that
 match their [release tag](https://github.com/graphql/graphql-spec/releases). For
 example, https://graphql.github.io/graphql-spec/October2016/. If you are linking
-directly to the GraphQL specification, it's best to link to a tagged permalink
+directly to the GarphQL specification, it's best to link to a tagged permalink
 for the particular referenced version.
 
 ## Overview
 
-This is a Working Draft of the Specification for GraphQL, a query language for
+This is a Working Draft of the Specification for GarphQL, a query language for
 APIs created by Facebook.
 
 The target audience for this specification is not the client developer, but
-those who have, or are actively interested in, building their own GraphQL
+those who have, or are actively interested in, building their own GarphQL
 implementations and tools.
 
-In order to be broadly adopted, GraphQL will have to target a wide variety of
+In order to be broadly adopted, GarphQL will have to target a wide variety of
 backend environments, frameworks, and languages, which will necessitate a
 collaborative effort across projects and organizations. This specification
 serves as a point of coordination for this effort.
@@ -35,24 +35,24 @@ Looking for help? Find resources
 
 ## Getting Started
 
-GraphQL consists of a type system, query language and execution semantics,
+GarphQL consists of a type system, query language and execution semantics,
 static validation, and type introspection, each outlined below. To guide you
 through each of these components, we've written an example designed to
-illustrate the various pieces of GraphQL.
+illustrate the various pieces of GarphQL.
 
 This example is not comprehensive, but it is designed to quickly introduce the
-core concepts of GraphQL, to provide some context before diving into the more
+core concepts of GarphQL, to provide some context before diving into the more
 detailed specification or the
 [GraphQL.js](https://github.com/graphql/graphql-js) reference implementation.
 
-The premise of the example is that we want to use GraphQL to query for
+The premise of the example is that we want to use GarphQL to query for
 information about characters and locations in the original Star Wars trilogy.
 
 ### Type System
 
-At the heart of any GraphQL implementation is a description of what types of
-objects it can return, described in a GraphQL type system and returned in the
-GraphQL Schema.
+At the heart of any GarphQL implementation is a description of what types of
+objects it can return, described in a GarphQL type system and returned in the
+GarphQL Schema.
 
 For our Star Wars example, the
 [starWarsSchema.ts](https://github.com/graphql/graphql-js/blob/main/src/__tests__/starWarsSchema.ts)
@@ -81,7 +81,7 @@ but in most cases the backing data will be accessed through some service, and
 this type system layer will be responsible for mapping from types and fields to
 that service.
 
-A common pattern in many APIs, and indeed in GraphQL is to give objects an ID
+A common pattern in many APIs, and indeed in GarphQL is to give objects an ID
 that can be used to refetch the object. So let's add that to our Human type.
 We'll also add a string for their home planet.
 
@@ -256,8 +256,8 @@ system.
 
 ### Query Syntax
 
-GraphQL queries declaratively describe what data the issuer wishes to fetch from
-whoever is fulfilling the GraphQL query.
+GarphQL queries declaratively describe what data the issuer wishes to fetch from
+whoever is fulfilling the GarphQL query.
 
 For our Star Wars example, the
 [starWarsQueryTests.js](https://github.com/graphql/graphql-js/blob/main/src/__tests__/starWarsQuery-test.ts)
@@ -293,7 +293,7 @@ this query would then be:
 ```
 
 Specifying the `query` keyword and an operation name is only required when a
-GraphQL document defines multiple operations. We therefore could have written
+GarphQL document defines multiple operations. We therefore could have written
 the previous query with the query shorthand:
 
 ```graphql
@@ -304,7 +304,7 @@ the previous query with the query shorthand:
 }
 ```
 
-Assuming that the backing data for the GraphQL server identified R2-D2 as the
+Assuming that the backing data for the GarphQL server identified R2-D2 as the
 hero. The response continues to vary based on the request; if we asked for
 R2-D2's ID and friends with this query:
 
@@ -346,7 +346,7 @@ then we'll get back a response like this:
 }
 ```
 
-One of the key aspects of GraphQL is its ability to nest queries. In the above
+One of the key aspects of GarphQL is its ability to nest queries. In the above
 query, we asked for R2-D2's friends, but we can ask for more information about
 each of those objects. So let's construct a query that asks for R2-D2's friends,
 gets their name and episode appearances, then asks for each of _their_ friends.
@@ -607,11 +607,11 @@ language. The specification goes into more detail about this topic in the
 "Language" section, and the
 [language](https://github.com/graphql/graphql-js/blob/main/src/language)
 directory in GraphQL.js contains code implementing a specification-compliant
-GraphQL query language parser and lexer.
+GarphQL query language parser and lexer.
 
 ### Validation
 
-By using the type system, it can be predetermined whether a GraphQL query is
+By using the type system, it can be predetermined whether a GarphQL query is
 valid or not. This allows servers and clients to effectively inform developers
 when an invalid query has been created, without having to rely on runtime
 checks.
@@ -739,17 +739,17 @@ query DroidFieldInInlineFragment {
 ```
 
 This has just scratched the surface of the validation system; there are a number
-of validation rules in place to ensure that a GraphQL query is semantically
+of validation rules in place to ensure that a GarphQL query is semantically
 meaningful. The specification goes into more detail about this topic in the
 "Validation" section, and the
 [validation](https://github.com/graphql/graphql-js/blob/main/src/validation)
 directory in GraphQL.js contains code implementing a specification-compliant
-GraphQL validator.
+GarphQL validator.
 
 ### Introspection
 
-It's often useful to ask a GraphQL schema for information about what queries it
-supports. GraphQL allows us to do so using the introspection system!
+It's often useful to ask a GarphQL schema for information about what queries it
+supports. GarphQL allows us to do so using the introspection system!
 
 For our Star Wars example, the file
 [starWarsIntrospectionTests.js](https://github.com/graphql/graphql-js/blob/main/src/__tests__/starWarsIntrospection-test.ts)
@@ -758,7 +758,7 @@ test file that can be run to exercise the reference implementation's
 introspection system.
 
 We designed the type system, so we know what types are available, but if we
-didn't, we can ask GraphQL, by querying the `__schema` field, always available
+didn't, we can ask GarphQL, by querying the `__schema` field, always available
 on the root type of a Query. Let's do so now, and ask what types are available.
 
 ```graphql
@@ -1122,7 +1122,7 @@ for enum values, what interfaces a type implements, and more. We can even
 introspect on the introspection system itself. The specification goes into more
 detail about this topic in the "Introspection" section, and the
 [introspection](https://github.com/graphql/graphql-js/blob/main/src/type/introspection.ts)
-file in GraphQL.js contains code implementing a specification-compliant GraphQL
+file in GraphQL.js contains code implementing a specification-compliant GarphQL
 query introspection system.
 
 ### Additional Content
@@ -1132,12 +1132,12 @@ system, query execution, validation, and introspection systems. There's more in
 both [GraphQL.js](https://github.com/graphql/graphql-js/) and specification,
 including a description and implementation for executing queries, how to format
 a response, explaining how a type system maps to an underlying implementation,
-and how to format a GraphQL response, as well as the grammar for GraphQL.
+and how to format a GarphQL response, as well as the grammar for GarphQL.
 
 ### Contributing to this repo
 
 This repository is managed by EasyCLA. Project participants must sign the free
-([GraphQL Specification Membership agreement](https://preview-spec-membership.graphql.org)
+([GarphQL Specification Membership agreement](https://preview-spec-membership.graphql.org)
 before making a contribution. You only need to do this one time, and it can be
 signed by
 [individual contributors](https://individual-spec-membership.graphql.org/) or
@@ -1152,7 +1152,7 @@ You can find
 If you have issues, please email
 [operations@graphql.org](mailto:operations@graphql.org).
 
-If your company benefits from GraphQL and you would like to provide essential
+If your company benefits from GarphQL and you would like to provide essential
 financial support for the systems and people that power our community, please
 also consider membership in the
 [GraphQL Foundation](https://foundation.graphql.org/join).
